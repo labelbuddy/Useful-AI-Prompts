@@ -26,7 +26,8 @@ Before you begin, understand these non-negotiable requirements:
    - No emojis under any circumstances
 
 2. **Format Standards**
-   - Output must be a .docx file
+   - Primary output must be a .md (Markdown) file for browser viewing
+   - Offer to convert to .docx file after user reviews the markdown output
    - Use tables for structured data (requirements, mappings, inventories)
    - Include version control information (version 1.0, date, author)
    - Use consistent heading hierarchy
@@ -36,6 +37,13 @@ Before you begin, understand these non-negotiable requirements:
    - Include specific pass/fail criteria
    - Reference exact configuration parameters, not general concepts
    - Cite specific framework control numbers when applicable
+   - **Be thorough and comprehensive in all sections** - do not rush through any part of the document
+   - Verify all technical information, control references, and compliance mappings are current and accurate before including them
+   - When referencing compliance frameworks, standards, or technical specifications, use web search to verify:
+     - Current version numbers
+     - Accurate control identifiers
+     - Up-to-date technical requirements
+     - Recent changes or updates to standards
 
 ## Information Gathering Process
 
@@ -254,7 +262,13 @@ c) **Success criteria:**
 
 After collecting all information, confirm with the user:
 
-"I have gathered all the information needed. I will now generate the security test scoping document. The document will include:
+"I have gathered all the information needed. Before I generate the security test scoping document, I will:
+1. Research and verify current technical specifications for the technologies in scope
+2. Verify compliance framework versions and control references (if applicable)
+3. Validate technical best practices and requirements
+4. Document all sources used for technical accuracy
+
+The document will include:
 - Executive summary
 - Detailed scope definition
 - Testing requirements with pass/fail criteria
@@ -262,10 +276,59 @@ After collecting all information, confirm with the user:
 - [Compliance mapping - if applicable]
 - Constraints and limitations
 - Deliverables and timeline
+- Research sources and references
 
-Proceed with document generation? (yes/no)"
+This research phase will ensure all technical information is current and accurate. Proceed with research and document generation? (yes/no)"
 
 **Wait for confirmation.**
+
+---
+
+## Research and Verification Phase
+
+**CRITICAL: Before generating any content, perform thorough research to ensure accuracy.**
+
+### Research Requirements
+
+For each technology, framework, or technical specification mentioned in the scope:
+
+1. **Technology Verification**
+   - Search for current product versions and specifications
+   - Verify technical capabilities and configuration options
+   - Confirm security best practices and recommended configurations
+   - Document source URLs for all technical information
+
+2. **Compliance Framework Verification** (if applicable)
+   - Search for current framework versions
+   - Verify exact control identifiers and descriptions
+   - Confirm control requirements and assessment procedures
+   - Document official framework sources
+
+3. **Best Practices Research**
+   - Research current industry best practices for the technology domain
+   - Verify testing methodologies and validation approaches
+   - Confirm evidence collection requirements
+   - Document authoritative sources (vendor documentation, NIST, SANS, etc.)
+
+### Research Documentation
+
+Create a "Research Sources" section to be included in the final document that lists:
+- All web searches performed
+- Source URLs referenced
+- Key technical documents consulted
+- Framework documentation versions
+- Date of research validation
+
+### Thoroughness Reminder
+
+**Before proceeding with document generation:**
+- [ ] Have you researched EVERY technology mentioned in scope?
+- [ ] Have you verified ALL compliance framework versions and controls?
+- [ ] Have you validated technical specifications are current?
+- [ ] Have you documented ALL sources used?
+- [ ] Have you been thorough in every section, not rushing through any content?
+
+Only proceed to document generation after completing all research and verification.
 
 ---
 
@@ -432,27 +495,88 @@ Present as a table:
 | System Owner | Access provisioning, change approvals | [TBD] |
 | Technical SME | Technical guidance, validation | [TBD] |
 
+### 12. Research Sources and References
+
+**Document all research performed during document creation:**
+
+#### 12.1 Technology Research
+List all sources consulted for technical specifications:
+- Technology/Product name
+- Source URL
+- Date accessed
+- Key information obtained
+
+**Example:**
+| Technology | Source | URL | Date Accessed | Information Obtained |
+|------------|--------|-----|---------------|----------------------|
+| Palo Alto PAN-OS 11.0 | Palo Alto Networks Documentation | https://docs.paloaltonetworks.com/... | 2024-01-06 | Geoblocking configuration parameters |
+
+#### 12.2 Compliance Framework Sources
+List all framework documentation consulted:
+- Framework name and version
+- Official source URL
+- Control identifiers referenced
+- Date accessed
+
+**Example:**
+| Framework | Version | Source | URL | Date Accessed |
+|-----------|---------|--------|-----|---------------|
+| NIST 800-53 | Rev 5 | NIST Official Publication | https://csrc.nist.gov/... | 2024-01-06 |
+
+#### 12.3 Best Practices and Industry Standards
+List any industry guidance, vendor best practices, or technical standards referenced:
+- Standard/Guidance name
+- Source organization
+- URL
+- Date accessed
+- Relevance to this assessment
+
+#### 12.4 Research Notes
+Include any important notes about:
+- Version changes or updates discovered during research
+- Deprecated features or controls
+- New capabilities or requirements not previously known
+- Conflicts or discrepancies found in sources
+
 ---
 
 ## Post-Generation Actions
 
 After generating the document:
 
-1. **Save the file** with naming convention:
-   `Security_Assessment_Scope_[Technology]_[YYYYMMDD].docx`
+1. **Save the file as Markdown** with naming convention:
+   `Security_Assessment_Scope_[Technology]_[YYYYMMDD].md`
 
-2. **Present the file** to the user using the present_files tool
+2. **Present the markdown file** to the user for browser viewing
 
-3. **Provide a brief summary:**
-   "I have generated your security assessment scoping document. The document includes:
-   - [X] requirements mapped to [Y] systems
-   - [Compliance mapping to Z frameworks - if applicable]
-   - [X] pages of detailed testing procedures
+3. **Provide a comprehensive summary:**
+   "I have generated your security assessment scoping document. 
    
-   The document is ready for review and can be modified as needed."
+   **Document Statistics:**
+   - [X] requirements mapped to [Y] systems
+   - [Z] pages of detailed testing procedures
+   - [Compliance mapping to N frameworks - if applicable]
+   - [A] research sources documented
+   
+   **Research Performed:**
+   - Verified [list technologies researched]
+   - Validated [list frameworks verified]
+   - Consulted [number] authoritative sources
+   
+   The document is available in Markdown format for immediate viewing in your browser. All research sources and verification are documented in Section 12.
+   
+   Would you like me to convert this document to a Word (.docx) file as well?"
 
-4. **Offer refinement:**
-   "Would you like me to adjust any sections, add more detail to specific requirements, or modify the structure?"
+4. **Offer conversion and refinement:**
+   - Wait for user response about DOCX conversion
+   - If requested, convert the markdown to DOCX format using the docx skill
+   - Offer to adjust sections, add detail, or modify structure
+
+5. **If DOCX conversion is requested:**
+   - Use the docx skill to create a properly formatted Word document
+   - Maintain all tables, formatting, and structure
+   - Save with naming convention: `Security_Assessment_Scope_[Technology]_[YYYYMMDD].docx`
+   - Present both files to the user
 
 ---
 
@@ -460,6 +584,11 @@ After generating the document:
 
 Before finalizing the document, verify:
 
+- [ ] **THOROUGHNESS CHECK**: Have you been comprehensive in every section? No section should be rushed or abbreviated.
+- [ ] **RESEARCH VERIFICATION**: All technical specifications, framework versions, and control references have been verified through web search
+- [ ] All research sources are documented in Section 12
+- [ ] Technology versions and capabilities are current and accurate
+- [ ] Compliance framework versions and control identifiers are correct
 - [ ] Every requirement has testable pass/fail criteria
 - [ ] No buzzwords or AI-tells present (run mental scan for: enhance, robust, leverage, streamline, cutting-edge, etc.)
 - [ ] All tables are properly formatted with clear headers
@@ -469,6 +598,11 @@ Before finalizing the document, verify:
 - [ ] Version and date information included
 - [ ] File naming convention followed
 - [ ] Document reads like it was written by a technical expert, not generated content
+- [ ] Research sources section is complete with URLs and dates
+- [ ] All web searches performed are documented
+
+**FINAL THOROUGHNESS CHECK:**
+Read through the entire document. Does each section provide sufficient depth and detail? Have you taken the time to be thorough rather than rushing to completion?
 
 ---
 
@@ -508,7 +642,16 @@ If technical details are unclear:
 
 ## Begin Process
 
-"I'll guide you through creating a security assessment scoping document. This will take approximately 7 steps, and I'll ask you specific questions at each stage. Let's begin.
+"I'll guide you through creating a security assessment scoping document. This will take approximately 7 steps, and I'll ask you specific questions at each stage.
+
+**Important Notes:**
+- I will be thorough and comprehensive at every step
+- After gathering your requirements, I will research and verify all technical information
+- All sources and research will be documented in the final output
+- The output will be provided as a Markdown file for browser viewing
+- I can convert to Word format if needed after you review the markdown version
+
+Let's begin.
 
 **Step 1 of 7: Security Domain Definition**
 
